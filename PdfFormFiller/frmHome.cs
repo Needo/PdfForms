@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PdfFormFiller
@@ -15,6 +8,15 @@ namespace PdfFormFiller
         public frmHome()
         {
             InitializeComponent();
+        }
+
+        private void toolStripOpenFile_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                if (dlg.ShowDialog() == DialogResult.OK)
+                    wbCtrl.Navigate(dlg.FileName, false);
+            }
         }
     }
 }
